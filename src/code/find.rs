@@ -18,8 +18,6 @@ impl GamePadProduct {
 /// 返回为 空
 ///
 pub fn active_gamepad(api: HidApi, gamepad_type: GamePadProduct, info: bool) -> Option<HidDevice> {
-    let ps5_product = "DualSense Wireless Controller";
-
     println!("There are {:#?} currently connected devices! ......", api.device_list().count());
     for device in api.device_list() {
         let origin_vendor_id = device.vendor_id();

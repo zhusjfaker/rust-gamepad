@@ -10,7 +10,7 @@ mod tests {
         if res.is_none(){
             println!("can't find active ps5 gamepad controller !");
         }
-        let device = res.unwrap();
+        let _device = res.unwrap();
 
 
         println!("test end ...")

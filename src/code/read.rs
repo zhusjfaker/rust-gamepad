@@ -1,6 +1,6 @@
 use hidapi::HidDevice;
 
-fn gamepad_reading(device: HidDevice) {
+pub fn gamepad_reading(device: HidDevice) {
     loop {
         println!("Reading...");
         let mut buf = [0u8; 8];
