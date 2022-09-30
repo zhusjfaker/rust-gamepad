@@ -3,12 +3,12 @@ use hidapi::HidDevice;
 
 pub fn gamepad_reading(device: HidDevice) {
     let mut old_content = "".to_string();
+    println!("starting to read handle byte data...");
     loop {
-        println!("Reading...");
         let mut buf = [0u8; 8];
         let _res = device.read_timeout(&mut buf[..], 1000).unwrap();
         // println!("Read: {:?}", &buf[..res]);
-        let content = serde_json::to_string_pretty(&buf).unwrap();
+        let content = serde_json::to_string(&buf[0..6]).unwrap();
         if content != old_content {
             let record_txt_file = path_resolve("record.txt".to_string());
             let mut file = safe_open_file(record_txt_file).unwrap();
