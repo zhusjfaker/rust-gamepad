@@ -1,4 +1,4 @@
-use hidapi::{HidApi};
+use hidapi::HidApi;
 
 ///
 /// 初始化 hidapi 库
